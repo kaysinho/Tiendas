@@ -1,0 +1,31 @@
+  <h1 class="animated fadeIn fast">{{category.name}}</h1>
+<br/>
+<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" [(ngModel)]="filters.product" name="product" type="search" placeholder="Producto">
+    <input class="form-control mr-sm-2" [(ngModel)]="filters.quantity" name="quantity" min="0" type="number" placeholder="Cantidad">
+    <input class="form-control mr-sm-2" [(ngModel)]="filters.price.since" name="since" min="0" type="number" placeholder="Precio desde">
+    <input class="form-control mr-sm-2" [(ngModel)]="filters.price.until" name="until" min="0" type="number" placeholder="Precio hasta">
+  <label><input class="form-control mr-sm-2" [(ngModel)]="filters.available" name="available" type="checkbox" value="true" >Disponibles</label>
+  </form>
+  <br>
+<div class="card-columns animated fadeIn">
+<div class="col-12" *ngFor="let product of products | category:category.id | quantity:filters.quantity | productByName:filters.product | prices: filters.price.since:filters.price.until | available:filters.available ">
+    <div class="card" >
+        <img class="card-img-top" src="{{product.img}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">
+            Precio: {{product.price}}
+          </p>
+          <p class="card-text">
+            <small class="text-muted"> Cantidad: {{product.quantity}}</small>
+          </p>
+          <button *ngIf="product.available==true && product.quantity>0" type="button" class="btn btn-outline-info btn-sm"><i class="material-icons">shopping_cart</i>Agregar</button>
+          <button *ngIf="product.available==false" disabled type="button" class="btn btn-outline-secondary btn-sm">No disponible</button>
+          <button *ngIf="product.quantity<=0" disabled type="button" class="btn btn-outline-secondary btn-sm">Sin existencias</button>
+        </div>
+      </div>
+</div>
+  
+  
+</div>

@@ -1,0 +1,32 @@
+<div class="list-group">
+  <span class="list-group-item">
+    <strong>Categorias</strong>
+    <span class="pull-right" id="slide-submenu">
+      <i class="fa fa-times"></i>
+    </span>
+  </span>
+  <div class="list-group-item" *ngFor="let category of categories">
+    <a href="#" [routerLink]="['category', category.name, category.id]" routerLinkActive="active">
+      <strong>{{category.name}}</strong>
+    </a>
+    <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between" >
+      <li routerLinkActive="active" class="nav-item" data-toggle="collapse" *ngFor="let sublevel of category.sublevels">
+        <a [routerLink]="['category', sublevel.name, sublevel.id]">-{{sublevel.name}}</a>
+
+        <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between" >
+          <li routerLinkActive="active" class="nav-item" data-toggle="collapse" *ngFor="let sublevel2 of sublevel.sublevels">
+            <a [routerLink]="['category', sublevel2.name, sublevel2.id]">--{{sublevel2.name}}</a>
+
+            <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between" >
+                <li routerLinkActive="active" class="nav-item" data-toggle="collapse" *ngFor="let sublevel3 of sublevel2.sublevels">
+                  <a [routerLink]="['category', sublevel3.name, sublevel3.id]">---{{sublevel3.name}}</a>
+                </li>
+              </ul>
+
+          </li>
+        </ul>
+
+      </li>
+    </ul>
+  </div>
+</div>

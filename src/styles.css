@@ -1,0 +1,87 @@
+body{
+    padding-bottom: 50px;
+}
+
+.btn-secondary {
+  background-color: #F79F81 !important;
+  border-color: #F79F81 !important;
+}
+
+.btn-outline-info {
+  color: orangered !important;
+  border-color: orangered  !important; 
+}
+
+.btn-outline-info:hover {
+  color: white !important;
+  background-color: orangered  !important; 
+}
+
+
+
+.list-group-item.active {
+  z-index: 2;
+  color: #fff !important;
+  background-color: #f79f81 !important;
+  border-color: #F79F81 !important;
+}
+
+.list-group-item:hover {
+  z-index: 2;
+  color: #f77d54 !important;
+  background-color: #fff !important;
+  border-color: #F79F81 !important;
+}
+
+.list-group a {
+  color: rgba(0,0,0,.5) !important;
+}
+
+.navbar{
+  color: orangered !important;
+}
+
+h1{
+  color: #F79F81 !important;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: orangered !important;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  .fast {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn {
+    animation-name: fadeIn;
+  }
+
+
+.product{
+  padding-bottom: 20px;
+  border-style: solid;
+  border: 2px;
+  border-color: gray;
+  background-color: #F2F2F2;
+}

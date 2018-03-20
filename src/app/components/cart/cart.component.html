@@ -1,0 +1,26 @@
+<h1>Mi carrito</h1>
+<div class="product row" *ngFor="let product of products; let i = index">
+  <div class="col-sm-4">
+    <img src="{{product.img}}" width="200" />
+  </div>
+  <div class="col--sm-8">
+    <h4 >{{product.name}}</h4>
+    <label for="basic-url">Detalles del producto</label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">Cantidad a comprar</span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="product.quantitySales" (change)="refreshPrice(product)" (keypress)="refreshPrice(product)" type="number" min="0" max="{{product.quantity}}" value="1" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+  
+    <label for="basic-url">Producto: {{product.totalValueSale | currency}}</label>
+    <button type="button" (click)="deleteProduct(i)" class="btn btn-danger btn-sm">Quitar</button>
+  </div>
+</div>
+
+<h1 *ngIf="products.length>0" class="text-right">Total {{total | currency}}</h1>
+<button type="button" *ngIf="products.length>0" (click)="addPedido()" class="btn btn-success flex-row w-100">Confirmar el pedido</button>
+<br><br>
+<div class="alert alert-success fade show" *ngIf="products.length==0 && sale"  role="alert">
+    Se ha confirmado el pedido, muchas gracias!
+  </div>

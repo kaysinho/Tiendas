@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top" role="navigation">
+    
+  <a class="navbar-brand" href="#">
+      <img src="assets/images/Logo.png" width="110" class="d-inline-block align-top" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto ">
+      <!--Home Option-->
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['home']">Inicio</a>
+      </li>
+
+      <!--Categories-->
+      <li class="nav-item" routerLinkActive="active" *ngFor="let category of categories">
+        <a class="nav-link" [routerLink]="['category', category.name, category.id]">{{category.name}}</a>
+      </li>
+
+      <!--My Cart-->
+      <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['cart']" title="Carrito">
+            <i class="material-icons">shopping_cart</i>
+          </a>
+        </li>
+    </ul>
+
+
+  </div>
+</nav>
+<hr>

@@ -1,0 +1,77 @@
+{ "categories": [
+	{
+		"id": 1,
+		"name": "Bebidas",
+		"sublevels": [
+			{
+				"id": 11,
+				"name": "Gaseosas",
+				"sublevels": [
+					{
+						"id": 111,
+						"name": "Con azúcar"
+					},
+					{
+						"id": 112,
+						"name": "Sin azúcar"
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 2,
+		"name": "Desayunos",
+		"sublevels": [
+			{
+				"id": 21,
+				"name": "Con huevo",
+				"sublevels": [
+					{
+						"id": 211,
+						"name": "Revueltos"
+					},
+					{
+						"id": 212,
+						"name": "Rancheros",
+						"sublevels": [
+							{
+								"id": 2121,
+								"name": "Adición de tomate"
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": 3,
+		"name": "Almuerzos",
+		"sublevels": [
+			{
+				"id": 31,
+				"name": "Gourmet"
+			},
+			{
+				"id": 32,
+				"name": "Corrientes"
+			}
+		]
+	},
+	{
+		"id": 4,
+		"name": "Vinos",
+		"sublevels": [
+			{
+				"id": 41,
+				"name": "Tintos"
+			},
+			{
+				"id": 42,
+				"name": "Blancos"
+			}
+		]
+	}
+]
+}
