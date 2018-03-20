@@ -20,7 +20,7 @@
           <p class="card-text">
             <small class="text-muted"> Cantidad: {{product.quantity}}</small>
           </p>
-          <button *ngIf="product.available==true && product.quantity>0" type="button" class="btn btn-outline-info btn-sm"><i class="material-icons">shopping_cart</i>Agregar</button>
+          <button *ngIf="product.available==true && product.quantity>0" type="button" (click)="addCart(product)" class="btn btn-outline-info btn-sm"><i class="material-icons">shopping_cart</i>Agregar</button>
           <button *ngIf="product.available==false" disabled type="button" class="btn btn-outline-secondary btn-sm">No disponible</button>
           <button *ngIf="product.quantity<=0" disabled type="button" class="btn btn-outline-secondary btn-sm">Sin existencias</button>
         </div>

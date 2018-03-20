@@ -1,26 +1,46 @@
 <h1>Mi carrito</h1>
-<div class="product row" *ngFor="let product of products; let i = index">
-  <div class="col-sm-4">
-    <img src="{{product.img}}" width="200" />
-  </div>
-  <div class="col--sm-8">
-    <h4 >{{product.name}}</h4>
-    <label for="basic-url">Detalles del producto</label>
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon3">Cantidad a comprar</span>
-      </div>
-      <input type="text" class="form-control" [(ngModel)]="product.quantitySales" (change)="refreshPrice(product)" (keypress)="refreshPrice(product)" type="number" min="0" max="{{product.quantity}}" value="1" id="basic-url" aria-describedby="basic-addon3">
-    </div>
-  
-    <label for="basic-url">Producto: {{product.totalValueSale | currency}}</label>
-    <button type="button" (click)="deleteProduct(i)" class="btn btn-danger btn-sm">Quitar</button>
-  </div>
-</div>
 
-<h1 *ngIf="products.length>0" class="text-right">Total {{total | currency}}</h1>
-<button type="button" *ngIf="products.length>0" (click)="addPedido()" class="btn btn-success flex-row w-100">Confirmar el pedido</button>
-<br><br>
 <div class="alert alert-success fade show" *ngIf="products.length==0 && sale"  role="alert">
     Se ha confirmado el pedido, muchas gracias!
   </div>
+
+
+  <table id="cart" class="table table-hover table-condensed" *ngIf="products.length>0">
+    <thead>
+    <tr>
+      <th style="width:50%">Producto</th>
+      <th style="width:10%">Precio</th>
+      <th style="width:8%">Cantidad</th>
+      <th style="width:22%" class="text-center">Subtotal</th>
+      <th style="width:10%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; let i = index">
+      <td data-th="Producto">
+        <div class="row">
+          <div class="col-sm-2 hidden-xs"><img src="{{product.img}}" alt="{{product.name}}" width="100%" style="min-width:200px;" class="img-responsive"/></div>
+          <div class="col-sm-10">
+            <h4 class="nomargin titleProduct">{{product.name}}</h4>
+          </div>
+        </div>
+      </td>
+      <td data-th="Price">{{product.price}}</td>
+      <td data-th="Quantity">
+        <input type="number" class="form-control text-center" [(ngModel)]="product.quantitySales" (change)="refreshPrice(product)" (keypress)="refreshPrice(product)" value="1"  min="1" max="{{product.quantity}}" >
+      </td>
+      <td data-th="Subtotal" class="text-center">{{product.totalValueSale | currency}}</td>
+      <td class="actions" data-th="">
+        <button type="button" (click)="deleteProduct(i)" class="btn btn-danger btn-sm">Quitar</button>						
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td><a href="#" class="btn btn-warning" [routerLink]="['home']"><i class="fa fa-angle-left"></i> Continue comprando</a></td>
+      <td colspan="2" class="hidden-xs"></td>
+      <td class="hidden-xs text-center"><strong>Total {{total | currency}}</strong></td>
+      <td><button type="button" *ngIf="products.length>0" (click)="addPedido()" class="btn btn-success flex-row w-100">Confirmar el pedido</button></td>
+    </tr>
+  </tfoot>
+</table>

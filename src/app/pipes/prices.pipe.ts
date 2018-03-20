@@ -16,7 +16,8 @@ export class PricesPipe implements PipeTransform {
 
     if (since<0 || since==null || since==undefined){
       since = 0
-    }else if(until==null || until==undefined || until==0){
+    }
+    if(until==null || until==undefined || until==0){
       until=500000
     }
 

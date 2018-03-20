@@ -1,32 +1,31 @@
-<div class="list-group">
-  <span class="list-group-item">
-    <strong>Categorias</strong>
-    <span class="pull-right" id="slide-submenu">
-      <i class="fa fa-times"></i>
-    </span>
-  </span>
-  <div class="list-group-item" *ngFor="let category of categories">
-    <a href="#" [routerLink]="['category', category.name, category.id]" routerLinkActive="active">
-      <strong>{{category.name}}</strong>
+<div>
+  <div class="list-group-item title-sidebar">
+    <a data-toggle="collapse" aria-controls="side-menu-collapse" aria-expanded="false" data-target="#side-menu-collapse">
+      <strong>Categorias</strong>
     </a>
-    <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between" >
-      <li routerLinkActive="active" class="nav-item" data-toggle="collapse" *ngFor="let sublevel of category.sublevels">
-        <a [routerLink]="['category', sublevel.name, sublevel.id]">-{{sublevel.name}}</a>
-
-        <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between" >
-          <li routerLinkActive="active" class="nav-item" data-toggle="collapse" *ngFor="let sublevel2 of sublevel.sublevels">
-            <a [routerLink]="['category', sublevel2.name, sublevel2.id]">--{{sublevel2.name}}</a>
-
-            <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between" >
-                <li routerLinkActive="active" class="nav-item" data-toggle="collapse" *ngFor="let sublevel3 of sublevel2.sublevels">
-                  <a [routerLink]="['category', sublevel3.name, sublevel3.id]">---{{sublevel3.name}}</a>
-                </li>
-              </ul>
-
-          </li>
-        </ul>
-
-      </li>
-    </ul>
   </div>
+  <div class="list-group">
+      <ul id="side-menu-collapse" class="collapse show">
+          <li id="first_li" class="list-group-item dropdown-toggle" routerLinkActive="active" *ngFor="let category of categories">
+            <a [routerLink]="['category', category.name, category.id]">{{category.name}}</a>
+            <ul>
+              <li *ngFor="let sublevel of category.sublevels" routerLinkActive="active">
+                <a [routerLink]="['category', sublevel.name, sublevel.id]">{{sublevel.name}}</a>
+                <ul>
+                  <li *ngFor="let sublevel2 of sublevel.sublevels" routerLinkActive="active">
+                    <a [routerLink]="['category', sublevel2.name, sublevel2.id]">{{sublevel2.name}}</a>
+                    <ul>
+                      <li *ngFor="let sublevel3 of sublevel2.sublevels" routerLinkActive="active">
+                        <a [routerLink]="['category', sublevel3.name, sublevel3.id]">{{sublevel3.name}}</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+      
+        </ul>
+  </div>
+  
 </div>

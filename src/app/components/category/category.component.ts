@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from './../../services/products.service';
 import { CategoriesService } from '../../services/categories.service'
+import { SalesService } from '../../services/sales.service'
 import { Product } from '../../models/product'
 import { Category } from '../../models/category'
 import 'rxjs/add/operator/map'
@@ -33,7 +34,8 @@ export class CategoryComponent implements OnInit {
   constructor(private productsService:ProductsService, 
     private categoriesService:CategoriesService,
     private activadedRoute:ActivatedRoute,
-    private router:Router) { }
+    private router:Router,
+    private salesService:SalesService) { }
 
   ngOnInit() {
     this.activadedRoute.params.subscribe(params =>{
@@ -54,6 +56,10 @@ export class CategoryComponent implements OnInit {
     .subscribe(data => {
       this.products= data;
     });
+  }
+
+  addCart(product:Product){
+    this.salesService.addProduct(product)
   }
 
 }
